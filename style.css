@@ -1,0 +1,40 @@
+.video{
+    width:50 vw;
+    height: 100 vh;
+}
+*{
+    box-sizing: border-box;
+    /* background-color: black; */
+    margin: 0;
+}
+.video_container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    background-color: black;
+}
+.buttons{
+    /* display: flex; */
+}
+#record_video{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    color: white;
+    background-color: rgb(139, 143, 143);
+    border: 1px solid black;
+    top:40vh;
+    left:85vw;
+}
+#click_pic{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    border-radius: 100%;
+    color: white;
+    background-color: rgb(139, 143, 143);
+    border: 1px solid black;
+    top:55vh;
+    left:85vw;
+}
