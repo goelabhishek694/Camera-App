@@ -19,12 +19,18 @@
         //define height width according to your need , default is 200*150px
         board.height=window.innerHeight;
         board.width=window.innerWidth;
+        window.addEventListener("resize",function(){
+            board.height=window.innerHeight;
+            board.width=window.innerWidth;
+        })
         //used to render in 2d
         let tool=board.getContext("2d");
-
-        tool.fillRect(0,0,board.width/2,board.height/2);
-        tool.fillStyle="lightblue";
-        tool.fillRect(100,100,board.width/2,board.height/2);
+        draw();
+        function draw(){
+            tool.fillRect(0,0,board.width/2,board.height/2);
+            tool.fillStyle="lightblue";
+            tool.fillRect(100,100,board.width/2,board.height/2);
+        }
     </script>
 </body>
 </html>
