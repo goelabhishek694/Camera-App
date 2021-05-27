@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txnDB">
+    <input type="text" id="version">
+    <button id="createDB"></button>
+    <button id="addNote"></button>
+    <button id="view"></button>
+
+    <script>
+        let db;
+        let createBtn=document.querySelector("#createDB");
+        let addBtn=document.querySelector("#addNote");
+        let viewBtn=document.querySelector("#view");
+
+        createBtn.addEventListener("click",function(){
+            let dbn=document.querySelector("#txnDB").value;
+            let v=document.querySelector("#version").value;
+
+            let request=window.indexedDB.open(dbn,v);
+            request.addEventListener("success",function(e){
+                db=e.target.result;
+                console.log("success");
+            })
+            request.addEventListener("error",function(){
+                console.log(e);
+            })
+            request.addEventListener("upgradeneeded",function(e){
+                db=e.target.result;
+                if(db){
+                    db.createObjectStore("notes",{keyPath:"nId"});
+                }
+            })
+        })
+
+        addBtn.addEventListener("click",function(){
+            if(db){
+                let note={
+                    "nId":count++,
+                    "notes": "I am a note "+count
+                }
+            }
+            let tx=db.transaction("notes","readwrite");
+            let notesStore=tx.ObjectStore("notes");
+            notesStore.add(note);
+        })
+
+        viewBtn.addEventListener("click",function(e){
+            if(db){
+                let tx=db.transaction("notes","readonly");
+                let notesStore=tx.ObjectStore("notes");
+                let pendingAns=notesStore.openCursor();
+                pendingAns.addEventListener("")
+            }
+        })
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

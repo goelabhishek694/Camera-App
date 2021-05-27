@@ -1,7 +1,3 @@
-.video{
-    width:50 vw;
-    height: 100 vh;
-}
 *{
     box-sizing: border-box;
     /* background-color: black; */
@@ -13,28 +9,141 @@
     display: flex;
     background-color: black;
 }
-.buttons{
-    /* display: flex; */
+.video{
+    height: 100%;
+    width: 100%;
+    /* transform: scale(1.5); */
+    /* margin: 0 auto; */
+    /* transform-origin: center center; */
 }
-#record_video{
-    position: absolute;
-    height: 80px;
-    width: 80px;
+
+.record-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+    width: 70px;
     border-radius: 100%;
     color: white;
-    background-color: rgb(139, 143, 143);
+    background-color: red;
     border: 1px solid black;
-    top:40vh;
+}
+.capture-btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 70px;
+    width: 70px;
+    border-radius: 100%;
+    color: white;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+}
+.btn-parent{
+    height:100px;
+    width: 100px;
+    border-radius: 100%;
+    /* background-color: rgb(13, 14, 13); */
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top:35vh;
     left:85vw;
+    border: 7px solid white;
+    z-index: 2;
 }
-#click_pic{
-    position: absolute;
-    height: 80px;
-    width: 80px;
-    border-radius: 100%;
-    color: white;
-    background-color: rgb(139, 143, 143);
-    border: 1px solid black;
+.capture-container{
     top:55vh;
-    left:85vw;
+}
+.record-animation{
+    animation: scaleUp 1s ease-in-out infinite;
+}
+.capture-animation{
+    animation: scaleUp 1s ease-in-out;
+}
+
+@keyframes scaleUp {
+    0%{
+        transform:scale(0.75);
+    }
+    20%{
+        transform: scale(0.87);
+    }
+    40%{
+        transform: scale(1);
+    }
+    60%{
+        transform: scale(1.05);
+    }
+    80%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+    
+}
+.filter-container{
+    height:50vh;
+    width:4rem;
+    position: fixed;
+    top:10vh;
+    left:5vw;
+    z-index: 2;
+}
+.filter{
+   background-image: url("https://picsum.photos/id/237/200/300"); 
+height: 20%;  
+   background-size: cover;
+   /* mix bg color width the  image */
+   background-blend-mode: color-burn;
+   /* z-index: 2; */
+}
+.timing{
+    color:white;
+    position: fixed;
+    bottom :15vh;
+    left:3vw;
+    font-size: 1.7rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    display: none;
+}
+.timing-active{
+    display: block;
+}
+.ui-filter{
+    height:100vh;
+    width:100vw;
+    position: fixed;
+    /* z-index:4; */
+    display: none;
+    
+
+}
+.ui-filter-active{
+    display: block;
+}
+.zoom{
+    height: 7rem;
+    width: 3rem;
+    background-color: #444;
+    position: fixed;
+    z-index: 2;
+    right: 8vw;
+    top: 9vh;
+}
+.icon-container{
+    color: white;
+    height: 50%;
+    border-bottom: 2px solid black;
+    text-align: center;
+    padding-top: 1rem;
+    
+}
+.icon{
+    font-size: 180%;
 }
