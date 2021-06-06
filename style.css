@@ -147,3 +147,16 @@ height: 20%;
 .icon{
     font-size: 180%;
 }
+#gallery-button{
+    position: fixed;
+    top: 78vh;
+    left: 87vw;
+    z-index: 2;
+    /* height: 3rem; */
+    /* width: 3rem; */
+    background-color: lightgray;
+    outline: none;
+    border: none;
+    font-size: 3rem;
+
+}

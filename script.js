@@ -27,16 +27,19 @@ navigator.mediaDevices.getUserMedia(constraints)
         })
         mediaRecorder.addEventListener("stop",function(){
             let blob=new Blob(buffer, {type:"video/mp4"});
+            buffer=[];
             const url=window.URL.createObjectURL(blob);
-            let a=document.createElement("a");
-            a.download="file.mp4";
-            a.href=url;
-            a.click();
+            addMediatoGallery(url,"video");
+            // let a=document.createElement("a");
+            // a.download="file.mp4";
+            // a.href=url;
+            // a.click();
         })
     })
     .catch(function(err){
         console.log(err);
     })
+
        
 recordVideo.addEventListener("click",function(){
     if(!mediaRecorder){
@@ -68,15 +71,21 @@ clickPic.addEventListener("click",function(){
     setTimeout(function(){
         clickPic.classList.remove("capture-animation");
     },1000);
+    // so that image is zoomed form centre
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.scale(zoomLevel, zoomLevel);
+    // this si to invert the image
+    ctx.translate(-canvas.width / 2, -canvas.height / 2);
     tool.drawImage(videoElem,0,0);
     tool.fillStyle = filterColor;
     tool.fillRect(0, 0, canvas.width, canvas.height);
     let link=canvas.toDataURL();
-    let a=document.createElement("a");
-    a.href=link;
-    a.download="file.png";
-    a.click();
-    a.remove();
+    // let a=document.createElement("a");
+    // a.href=link;
+    // a.download="file.png";
+    // a.click();
+    // a.remove();
+    addMediatoGallery(link,"image");
     canvas.remove();
 })
 
@@ -99,6 +108,7 @@ function stopCounting(){
 
 }
 
+//seting filters
 for (let i = 0; i < allFilters.length; i++) {
     allFilters[i].addEventListener("click", function () {
         // add filter to ui
@@ -115,6 +125,7 @@ for (let i = 0; i < allFilters.length; i++) {
         }
     })
 }
+
 let zoomLevel=1;
 zoomIn.addEventListener("click",function(){
     

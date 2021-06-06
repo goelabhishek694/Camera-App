@@ -30,14 +30,25 @@
             <i class="fas fa-minus icon"></i>
         </div>
     </div>
-        <div class="record-container btn-parent">
-            <button class="record-btn" id="record_video"></button>
-        </div>
-        <div class="capture-container btn-parent">
-            <button class="capture-btn"id="click_pic"></button>
-        </div>
-    
+    <div class="record-container btn-parent">
+        <button class="record-btn" id="record_video"></button>
+    </div>
+    <div class="capture-container btn-parent">
+        <button class="capture-btn"id="click_pic"></button>
+    </div>
+    <button id="gallery-button">
+        <!-- <span class="material-icons" style="color: white; font-size: 2rem;"></span> -->
+        <i class="fas fa-photo-video"></i>
+    </button>
+    <script>
+        let galleryBtn = document.querySelector('#gallery-button');
+        galleryBtn.addEventListener('click',function(){
+            location.assign('gallery.html');
+        })
+    </script>
 
-    <script src="script.js"></script>
+<script src="dbScript.js"></script>    
+<script src="script.js"></script>
+    
 </body>
 </html>
